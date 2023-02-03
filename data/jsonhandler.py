@@ -11,4 +11,10 @@ class JsonHandler:
 
     def read_json(self):
         with open(self.file_path, 'r') as file:
-            return json.load(file)
+            try:
+                return json.load(file)
+
+            except json.decoder.JSONDecodeError:
+                self.write_json([])
+
+                return json.load(file)
