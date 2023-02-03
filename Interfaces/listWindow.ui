@@ -6,27 +6,182 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>500</height>
+    <width>464</width>
+    <height>641</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
-    <width>400</width>
-    <height>500</height>
+    <width>464</width>
+    <height>641</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
-    <width>400</width>
-    <height>500</height>
+    <width>464</width>
+    <height>641</height>
    </size>
   </property>
   <property name="windowTitle">
    <string>Listar Lembretes</string>
   </property>
-  <widget class="QWidget" name="centralwidget"/>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(244, 232, 157);</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QPushButton" name="leftButton">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>540</y>
+      <width>121</width>
+      <height>81</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+	border-radius:10px;
+	
+	background-color: rgb(182, 182, 182);
+}
+</string>
+    </property>
+    <property name="text">
+     <string>Voltar</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="okButton">
+    <property name="geometry">
+     <rect>
+      <x>170</x>
+      <y>540</y>
+      <width>121</width>
+      <height>81</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+	border-radius:10px;
+	background-color: rgb(150, 193, 109);
+}
+
+QPushButton:hover{
+	background-color: rgb(169, 225, 109);
+}</string>
+    </property>
+    <property name="text">
+     <string>OK</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="rightButton">
+    <property name="geometry">
+     <rect>
+      <x>320</x>
+      <y>540</y>
+      <width>121</width>
+      <height>81</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+	border-radius:10px;
+	
+	background-color: rgb(182, 182, 182);
+}
+</string>
+    </property>
+    <property name="text">
+     <string>Próxima Página</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="noteButton1">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>20</y>
+      <width>421</width>
+      <height>161</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+	border-radius:10px;
+	background-color: rgb(230, 230, 230);
+}
+
+QPushButton:hover{
+	background-color: rgb(252, 188, 184);
+}</string>
+    </property>
+    <property name="text">
+     <string>Slot</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="noteButton2">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>190</y>
+      <width>421</width>
+      <height>161</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+	border-radius:10px;
+	background-color: rgb(230, 230, 230);
+}
+
+QPushButton:hover{
+	background-color: rgb(252, 188, 184);
+}</string>
+    </property>
+    <property name="text">
+     <string>Slot</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="noteButton3">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>360</y>
+      <width>421</width>
+      <height>161</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+	border-radius:10px;
+	background-color: rgb(230, 230, 230);
+}
+
+QPushButton:hover{
+	background-color: rgb(252, 188, 184);
+}</string>
+    </property>
+    <property name="text">
+     <string>Slot</string>
+    </property>
+   </widget>
+  </widget>
  </widget>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>okButton</sender>
+   <signal>clicked()</signal>
+   <receiver>listWindow</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>230</x>
+     <y>580</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>231</x>
+     <y>320</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>
