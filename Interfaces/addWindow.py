@@ -14,29 +14,68 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_notesWindow(object):
     def setupUi(self, notesWindow):
         notesWindow.setObjectName("notesWindow")
-        notesWindow.resize(400, 446)
-        notesWindow.setMinimumSize(QtCore.QSize(400, 446))
-        notesWindow.setMaximumSize(QtCore.QSize(400, 446))
+        notesWindow.resize(480, 500)
+        notesWindow.setMinimumSize(QtCore.QSize(480, 500))
+        notesWindow.setMaximumSize(QtCore.QSize(480, 500))
+        notesWindow.setStyleSheet("background-color: rgb(244, 232, 157);")
         self.centralwidget = QtWidgets.QWidget(notesWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.label = QtWidgets.QLabel(self.centralwidget)
-        self.label.setGeometry(QtCore.QRect(140, 10, 131, 61))
+        self.label.setGeometry(QtCore.QRect(90, 20, 271, 31))
+        self.label.setText("")
+        self.label.setPixmap(QtGui.QPixmap(".\\conteúdo.png"))
+        self.label.setScaledContents(True)
         self.label.setObjectName("label")
         self.label_2 = QtWidgets.QLabel(self.centralwidget)
-        self.label_2.setGeometry(QtCore.QRect(50, 280, 101, 31))
+        self.label_2.setGeometry(QtCore.QRect(40, 310, 211, 41))
+        self.label_2.setText("")
+        self.label_2.setPixmap(QtGui.QPixmap(".\\../Downloads/image-removebg-preview (1).png"))
+        self.label_2.setScaledContents(True)
         self.label_2.setObjectName("label_2")
         self.confirmButton = QtWidgets.QPushButton(self.centralwidget)
-        self.confirmButton.setGeometry(QtCore.QRect(50, 350, 131, 71))
+        self.confirmButton.setGeometry(QtCore.QRect(40, 400, 161, 71))
+        self.confirmButton.setStyleSheet("QPushButton{\n"
+"    border-radius:10px;\n"
+"    background-color: rgb(52, 190, 78);\n"
+"\n"
+"}\n"
+"\n"
+"QPushButton:hover{\n"
+"    background-color: rgb(54, 215, 96);\n"
+"}\n"
+"")
         self.confirmButton.setObjectName("confirmButton")
-        self.dateExpiration = QtWidgets.QComboBox(self.centralwidget)
-        self.dateExpiration.setGeometry(QtCore.QRect(170, 280, 181, 31))
-        self.dateExpiration.setObjectName("dateExpiration")
-        self.cancelButton = QtWidgets.QPushButton(self.centralwidget)
-        self.cancelButton.setGeometry(QtCore.QRect(220, 350, 131, 71))
-        self.cancelButton.setObjectName("cancelButton")
         self.textEdit = QtWidgets.QTextEdit(self.centralwidget)
-        self.textEdit.setGeometry(QtCore.QRect(50, 70, 301, 191))
+        self.textEdit.setGeometry(QtCore.QRect(40, 70, 391, 201))
+        self.textEdit.setStyleSheet("background-color: rgb(245, 245, 245);\n"
+"font: 18pt \"MS Shell Dlg 2\";")
         self.textEdit.setObjectName("textEdit")
+        self.cancelButton = QtWidgets.QPushButton(self.centralwidget)
+        self.cancelButton.setGeometry(QtCore.QRect(270, 400, 161, 71))
+        self.cancelButton.setStyleSheet("QPushButton{\n"
+"    border-radius:10px;\n"
+"    background-color: rgb(246, 11, 56);\n"
+"\n"
+"}\n"
+"\n"
+"QPushButton:hover{\n"
+"    background-color: rgb(250, 43, 59);\n"
+"}\n"
+"")
+        self.cancelButton.setObjectName("cancelButton")
+        self.dateNumbers = QtWidgets.QSpinBox(self.centralwidget)
+        self.dateNumbers.setGeometry(QtCore.QRect(290, 310, 141, 41))
+        self.dateNumbers.setStyleSheet("background-color: rgb(245, 245, 245);\n"
+"font: 18pt \"MS Shell Dlg 2\";")
+        self.dateNumbers.setMinimum(1)
+        self.dateNumbers.setMaximum(30)
+        self.dateNumbers.setObjectName("dateNumbers")
+        self.label_3 = QtWidgets.QLabel(self.centralwidget)
+        self.label_3.setGeometry(QtCore.QRect(350, 10, 41, 41))
+        self.label_3.setText("")
+        self.label_3.setPixmap(QtGui.QPixmap(".\\../Downloads/7830644_pencil_icon.png"))
+        self.label_3.setScaledContents(True)
+        self.label_3.setObjectName("label_3")
         notesWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(notesWindow)
@@ -46,8 +85,6 @@ class Ui_notesWindow(object):
     def retranslateUi(self, notesWindow):
         _translate = QtCore.QCoreApplication.translate
         notesWindow.setWindowTitle(_translate("notesWindow", "Adicionar Lembrete"))
-        self.label.setText(_translate("notesWindow", "Conteúdo do Lembrete:"))
-        self.label_2.setText(_translate("notesWindow", "Período de duração:"))
         self.confirmButton.setText(_translate("notesWindow", "Confirmar"))
         self.cancelButton.setText(_translate("notesWindow", "Cancelar"))
 
