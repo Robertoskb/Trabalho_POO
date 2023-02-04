@@ -3,3 +3,4 @@ PyQt5Designer
 gTTS
 playsound
 PyAudio
+pyttsx3

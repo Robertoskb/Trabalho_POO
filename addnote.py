@@ -19,7 +19,7 @@ class MainWindow(QMainWindow, Ui_notesWindow):
     def save_data(self):
         content = self.textEdit.toPlainText()
         date = str(datetime.now())
-        expiration = 2
+        expiration = self.dateNumbers.value()
 
         if content:
             data.append({'content': content, 'expiration': expiration, 'date': date})
