@@ -7,8 +7,9 @@ class JsonHandler:
 
     def write_json(self, data):
         with open(self.file_path, 'w') as file:
-            json.dump(data, file)
+            json.dump(data, file, indent=2)
 
+    @property
     def read_json(self):
         with open(self.file_path, 'r') as file:
             try:
