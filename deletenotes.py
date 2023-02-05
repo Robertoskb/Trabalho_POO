@@ -1,8 +1,8 @@
-from PyQt5.QtGui import QFont
+from PyQt5.QtCore import Qt, pyqtSignal
 from PyQt5.QtWidgets import QMainWindow, QMessageBox
 from PyQt5 import QtWidgets
 from Interfaces.deleteWindow import Ui_deleteWindow
-from checkexpirations import check_expirations
+from checkexpirations import check_expirations, parser_date
 from itertools import zip_longest
 from datetime import datetime
 from say_it import say
@@ -11,10 +11,7 @@ import textwrap
 
 file = JsonHandler('data/data.json')
 
-data = check_expirations()
-now = datetime.now()
-data.sort(key=lambda d: d['expiration'] - (now - datetime.strptime(d['date'], r"%Y-%m-%d %H:%M:%S.%f")).days)
-data_split = lambda: [data[i:i + 3] for i in range(0, len(data), 3)] or [[]]
+data_split = lambda data: [data[i:i + 3] for i in range(0, len(data), 3)] or [[]]
 
 
 def disconnect_button(button):
@@ -26,22 +23,39 @@ def disconnect_button(button):
 
 
 class DeleteWindow(QMainWindow, Ui_deleteWindow):
+    aboutToShow = pyqtSignal()
 
     def __init__(self):
         super().__init__()
         self.setupUi(self)
+        self.aboutToShow.connect(self.update)
 
-        self.current_page = 0
+        self.current_page = self.pages_number = 0
+        self.data_split = self.data = None
 
-        self.data_split = data_split()
-        self.pages_number = len(self.data_split)
+        for button in self.findChildren(QtWidgets.QPushButton):
+            button.setCursor(Qt.PointingHandCursor)
 
         self.default_button_style = self.noteButton1.styleSheet()
         self.default_left_right_buttons_style = self.leftButton.styleSheet()
 
         self.buttons = (self.noteButton1, self.noteButton2, self.noteButton3)
 
+    def update(self):
+        data = check_expirations()
+        now = datetime.now()
+        data.sort(key=lambda x: x['expiration'] - (now - datetime.strptime(x['date'], r"%Y-%m-%d %H:%M:%S.%f")).days)
+
+        self.data = data
+        self.data_split = data_split(data)
+        self.current_page = 0
+        self.pages_number = len(self.data_split)
+
         self.rename_buttons()
+
+    def show(self):
+        self.aboutToShow.emit()
+        super().show()
 
     def rename_buttons(self):
         rgbs = [('rgb(240, 83, 101)', 'rgb(230, 50, 50)'),
@@ -50,10 +64,14 @@ class DeleteWindow(QMainWindow, Ui_deleteWindow):
 
         for button, note, colors in zip_longest(self.buttons, self.data_split[self.current_page][:3], rgbs):
             if note:
+                date = parser_date(note['date'])
                 days = note['expiration']
-                day_text = 'dias restantes' if days != 1 else 'dia restante'
 
-                content = textwrap.fill(note['content'] + f' - ({days} {day_text})', 43)
+                difference = days - (datetime.now() - date).days
+
+                day_text = 'dias restantes' if difference != 1 else 'dia restante'
+
+                content = textwrap.fill(note['content'] + f' - ({difference} {day_text})', 43)
                 button.setText(content)
                 button.setStyleSheet("QPushButton{\n"
                                      "    border-radius:10px;\n"
@@ -89,10 +107,10 @@ class DeleteWindow(QMainWindow, Ui_deleteWindow):
             return
 
         index = (3 * self.current_page) + (id_button - 1)
-        data.pop(index)
-        self.data_split = data_split()
+        self.data.pop(index)
+        self.data_split = data_split(self.data)
         self.pages_number = len(self.data_split)
-        # file.write_json(data)
+        file.write_json(self.data)
 
         if self.current_page != 0 and self.current_page > self.pages_number - 1:
             self.current_page -= 1
