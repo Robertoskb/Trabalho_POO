@@ -5,10 +5,10 @@ from data.jsonhandler import JsonHandler
 from datetime import datetime
 
 file = JsonHandler('data/data.json')
-data = file.read_json()
+data = file.read_json
 
 
-class MainWindow(QMainWindow, Ui_notesWindow):
+class NotesWindow(QMainWindow, Ui_notesWindow):
 
     def __init__(self):
         super().__init__()
@@ -21,15 +21,17 @@ class MainWindow(QMainWindow, Ui_notesWindow):
         date = str(datetime.now())
         expiration = self.dateNumbers.value()
 
-        if content:
-            data.append({'content': content, 'expiration': expiration, 'date': date})
+        if content.strip():
+            data.append({'content': content.strip(), 'expiration': expiration, 'date': date})
             file.write_json(data)
+
             self.textEdit.setText('')
+            self.dateNumbers.setValue(1)
 
 
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
-    window = MainWindow()
+    window = NotesWindow()
     window.show()
     sys.exit(app.exec_())

@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file '.\deleteWindow.ui'
+# Form implementation generated from reading ui file '.\listWindow.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.7
 #
@@ -11,14 +11,14 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 
-class Ui_deleteWindow(object):
-    def setupUi(self, deleteWindow):
-        deleteWindow.setObjectName("deleteWindow")
-        deleteWindow.resize(464, 641)
-        deleteWindow.setMinimumSize(QtCore.QSize(464, 641))
-        deleteWindow.setMaximumSize(QtCore.QSize(464, 641))
-        deleteWindow.setStyleSheet("background-color: rgb(244, 232, 157);")
-        self.centralwidget = QtWidgets.QWidget(deleteWindow)
+class Ui_listWindow(object):
+    def setupUi(self, listWindow):
+        listWindow.setObjectName("listWindow")
+        listWindow.resize(464, 641)
+        listWindow.setMinimumSize(QtCore.QSize(464, 641))
+        listWindow.setMaximumSize(QtCore.QSize(464, 641))
+        listWindow.setStyleSheet("background-color: rgb(244, 232, 157);")
+        self.centralwidget = QtWidgets.QWidget(listWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.leftButton = QtWidgets.QPushButton(self.centralwidget)
         self.leftButton.setGeometry(QtCore.QRect(20, 540, 121, 81))
@@ -71,28 +71,29 @@ class Ui_deleteWindow(object):
                                        "    background-color: rgb(167, 162, 165);\n"
                                        "}")
         self.noteButton3.setObjectName("noteButton3")
-        deleteWindow.setCentralWidget(self.centralwidget)
+        listWindow.setCentralWidget(self.centralwidget)
 
-        self.retranslateUi(deleteWindow)
-        self.okButton.clicked.connect(deleteWindow.close) # type: ignore
-        QtCore.QMetaObject.connectSlotsByName(deleteWindow)
+        self.retranslateUi(listWindow)
+        self.okButton.clicked.connect(listWindow.close)  # type: ignore
+        QtCore.QMetaObject.connectSlotsByName(listWindow)
 
-    def retranslateUi(self, deleteWindow):
+    def retranslateUi(self, listWindow):
         _translate = QtCore.QCoreApplication.translate
-        deleteWindow.setWindowTitle(_translate("deleteWindow", "Excluir Lembrete"))
-        self.leftButton.setText(_translate("deleteWindow", "Voltar"))
-        self.okButton.setText(_translate("deleteWindow", "OK"))
-        self.rightButton.setText(_translate("deleteWindow", "Próxima Página"))
-        self.noteButton1.setText(_translate("deleteWindow", "Slot"))
-        self.noteButton2.setText(_translate("deleteWindow", "Slot"))
-        self.noteButton3.setText(_translate("deleteWindow", "Slot"))
+        listWindow.setWindowTitle(_translate("listWindow", "Listar Lembretes"))
+        self.leftButton.setText(_translate("listWindow", "Voltar"))
+        self.okButton.setText(_translate("listWindow", "OK"))
+        self.rightButton.setText(_translate("listWindow", "Próxima Página"))
+        self.noteButton1.setText(_translate("listWindow", "Slot"))
+        self.noteButton2.setText(_translate("listWindow", "Slot"))
+        self.noteButton3.setText(_translate("listWindow", "Slot"))
 
 
 if __name__ == "__main__":
     import sys
+
     app = QtWidgets.QApplication(sys.argv)
-    deleteWindow = QtWidgets.QMainWindow()
-    ui = Ui_deleteWindow()
-    ui.setupUi(deleteWindow)
-    deleteWindow.show()
+    listWindow = QtWidgets.QMainWindow()
+    ui = Ui_listWindow()
+    ui.setupUi(listWindow)
+    listWindow.show()
     sys.exit(app.exec_())
