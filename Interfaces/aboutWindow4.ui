@@ -120,7 +120,7 @@
    <widget class="QLabel" name="label_4">
     <property name="geometry">
      <rect>
-      <x>470</x>
+      <x>460</x>
       <y>380</y>
       <width>111</width>
       <height>31</height>
@@ -130,7 +130,7 @@
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>contatos.png</pixmap>
+     <pixmap>contatos1.png</pixmap>
     </property>
     <property name="scaledContents">
      <bool>true</bool>
@@ -312,6 +312,25 @@ QPushButton:hover{
     </property>
     <property name="text">
      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;a href=&quot;https://instagram.com/lara_rayssa07?igshid=YmMyMTA2M2Y=&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#000000;&quot;&gt;@lara_rayssa07&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_12">
+    <property name="geometry">
+     <rect>
+      <x>580</x>
+      <y>380</y>
+      <width>31</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>../Downloads/3225191_app_instagram_logo_media_popular_icon.png</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
     </property>
    </widget>
   </widget>
