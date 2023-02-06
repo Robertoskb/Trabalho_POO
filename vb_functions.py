@@ -8,7 +8,7 @@ import re
 check_day = lambda string: re.search(r'\b(um dia|\d+)\b', string)
 check_index = lambda string: re.search(r'\b(primeiro|\d+|primeiro lembrete)\b', string)
 
-file = JsonHandler('data/data.json')
+file = JsonHandler('data/data_blind.json')
 
 
 def listen(show_all=False):
@@ -65,7 +65,8 @@ def add_remind():
         while num_days not in map(str, range(1, 31)):
             result = check_day(str(listen(True)))
             num_days = result.group(0) if result else ''
-
+            if num_days == "um dia":
+                num_days = "1"
             if num_days not in map(str, range(1, 31)):
                 say('Por favor, fale um número de 1 a 30')
 

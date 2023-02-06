@@ -5,7 +5,6 @@ from data.jsonhandler import JsonHandler
 from datetime import datetime
 
 file = JsonHandler('data/data.json')
-data = file.read_json
 
 
 class NotesWindow(QMainWindow, Ui_notesWindow):
@@ -17,6 +16,7 @@ class NotesWindow(QMainWindow, Ui_notesWindow):
         self.confirmButton.clicked.connect(self.save_data)
 
     def save_data(self):
+        data = file.read_json
         content = self.textEdit.toPlainText()
         date = str(datetime.now())
         expiration = self.dateNumbers.value()
