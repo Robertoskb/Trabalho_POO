@@ -1,6 +1,18 @@
-add_reminderButton = "Adicionar Lembrete. Para adicionar um lembrete, digite " \
-                     "no espaço destinado para o conteúdo do lembrete. Depois, " \
-                     "determine o número de dias para o lembrete ficar " \
+aboutButton = "Sobre. Para saber mais sobre o aplicativo, basta clicar no " \
+              "botão Sobre que o programa irá te contar algumas curiosidades " \
+              "sobre esse aplicativo e quem o desenvolveu."
+
+helpButton = "Ajuda. Para aprender a como utilizar o aplicativo, basta " \
+             "clicar no botão Ajuda e o programa irá explicar a função " \
+             "de cada comando."
+
+commandButton = "Comandos. Para acessar a lista de comandos desse aplicativo, " \
+                "basta clicar no botão comandos e o programa irá listar " \
+                "o nome de cada comando."
+
+add_reminderButton = "Adicionar Lembrete. Para adicionar um lembrete, clique no botão adicionar" \
+                     "lembrete e digite no espaço destinado para o conteúdo do lembrete." \
+                     " Depois, determine o número de dias para o lembrete ficar " \
                      "armazenado no aplicativo. Por fim, clique em confirmar." \
                      "Caso queira cancelar, clique em cancelar."
 
