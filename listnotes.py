@@ -47,6 +47,10 @@ class ListWindow(QMainWindow, Ui_listWindow):
 
         self.rename_buttons()
 
+    def closeEvent(self, event):
+        self.disconnect_buttons()
+        super().closeEvent(event)
+
     def show(self):
         self.aboutToShow.emit()
         super().show()
@@ -65,8 +69,9 @@ class ListWindow(QMainWindow, Ui_listWindow):
 
                 day_text = 'dias restantes' if difference != 1 else 'dia restante'
 
-                content = textwrap.fill(note['content'] + f' - ({difference} {day_text})', 43)
-                button.setText(content)
+                content = note['content'] + f' - ({difference} {day_text})'
+
+                button.setText(textwrap.fill(content, 43))
                 button.setStyleSheet("QPushButton{\n"
                                      "    border-radius:10px;\n"
                                      f"    background-color: {colors[0]};\n"

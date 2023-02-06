@@ -8,7 +8,7 @@ import re
 check_day = lambda string: re.search(r'\b(um dia|\d+)\b', string)
 check_index = lambda string: re.search(r'\b(primeiro|\d+|primeiro lembrete)\b', string)
 
-file = JsonHandler('data/data_blind.json')
+file = JsonHandler('data/data.json')
 
 
 def listen(show_all=False):

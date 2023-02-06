@@ -52,6 +52,10 @@ class DeleteWindow(QMainWindow, Ui_deleteWindow):
         self.pages_number = len(self.data_split)
 
         self.rename_buttons()
+    
+    def closeEvent(self, event):
+        self.disconnect_buttons()
+        super().closeEvent(event)
 
     def show(self):
         self.aboutToShow.emit()
@@ -71,8 +75,9 @@ class DeleteWindow(QMainWindow, Ui_deleteWindow):
 
                 day_text = 'dias restantes' if difference != 1 else 'dia restante'
 
-                content = textwrap.fill(note['content'] + f' - ({difference} {day_text})', 43)
-                button.setText(content)
+                content = note['content'] + f' - ({difference} {day_text})'
+
+                button.setText(textwrap.fill(content, 43))
                 button.setStyleSheet("QPushButton{\n"
                                      "    border-radius:10px;\n"
                                      f"    background-color: {colors[0]};\n"
