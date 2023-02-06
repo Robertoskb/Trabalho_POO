@@ -7,6 +7,7 @@ from help import HelpWindow
 from about import AboutWindow
 from itertools import cycle
 from listnotes import ListWindow
+from say_it import say
 
 from threading import Thread
 from vb_functions import add_remind, delete_remind, list_reminds
@@ -26,6 +27,9 @@ class MainWindow(QMainWindow, Ui_Principal):
         self.list_window = ListWindow()
         self.help_window = HelpWindow()
         self.about_window = AboutWindow()
+
+        self.say_greetings = True
+        self.say_quest = True
 
         self.buttons = [b for b in self.findChildren(QtWidgets.QPushButton)]
         self.buttons.remove(self.closeButton)
@@ -62,15 +66,26 @@ class MainWindow(QMainWindow, Ui_Principal):
         self.mic_status = False
         func()
         self.mic_status = True
-
-    def say_commands(self):
-        pass
+        self.say_quest = True
 
     def closeEvent(self, event):
         self.thread = False
         if self.mic_status:
             self.set_mic(False)
+        self.close_windows()
+        say('tchau, emoji de carainha feliz')
         super().closeEvent(event)
+
+    def close_windows(self):
+        windows = [self.add_window, self.delete_window, self.list_window,
+                   self.help_window, self.about_window]
+
+        for w in windows:
+            try:
+                w.close()
+
+            except AttributeError:
+                pass
 
     def set_mic(self, change_colors):
         self.mic_status = not self.mic_status
@@ -104,7 +119,7 @@ class MainWindow(QMainWindow, Ui_Principal):
                 recognizer.adjust_for_ambient_noise(source)
 
                 while self.mic_status:
-                    print('gravando')
+                    self.greetings()
                     audio = recognizer.listen(source, phrase_time_limit=5)
 
                     try:
@@ -118,6 +133,18 @@ class MainWindow(QMainWindow, Ui_Principal):
                     except sr.UnknownValueError:
                         pass
 
+    def greetings(self):
+        if self.say_greetings:
+            say('Bem vindo ao ispiqui noutes. Para aprender a como utilizar o programa fale "ajuda". '
+                'Utilize fones de ouvido para uma melhor experiência')
+
+            self.say_greetings = False
+
+        if self.say_quest:
+            say("o que você quer fazer hoje?")
+
+            self.say_quest = False
+
     def connect_buttons(self):
         for button in self.buttons:
             button.setStyleSheet(button.style_on)
@@ -127,7 +154,8 @@ class MainWindow(QMainWindow, Ui_Principal):
         self.helpButton.clicked.connect(self.help_window.show)
         self.aboutButton.clicked.connect(self.about_window.show)
 
-        self.commandsButton.clicked.connect(self.say_commands)
+        self.commandsButton.clicked.connect(lambda: say('adicionar lembrete, excluir lembretes, '
+                                                        'listar lembretes, comandos, ajuda, sobre'))
 
     def disconnect_buttons(self):
         for button in self.buttons:

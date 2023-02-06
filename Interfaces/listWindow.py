@@ -71,9 +71,7 @@ class Ui_listWindow(object):
 "    background-color: rgb(230, 230, 230);\n"
 "}\n"
 "\n"
-"QPushButton:hover{\n"
-"    background-color: rgb(252, 188, 184);\n"
-"}")
+)
         self.noteButton1.setObjectName("noteButton1")
         self.noteButton2 = QtWidgets.QPushButton(self.centralwidget)
         self.noteButton2.setGeometry(QtCore.QRect(20, 190, 421, 161))
@@ -82,9 +80,7 @@ class Ui_listWindow(object):
 "    background-color: rgb(230, 230, 230);\n"
 "}\n"
 "\n"
-"QPushButton:hover{\n"
-"    background-color: rgb(252, 188, 184);\n"
-"}")
+)
         self.noteButton2.setObjectName("noteButton2")
         self.noteButton3 = QtWidgets.QPushButton(self.centralwidget)
         self.noteButton3.setGeometry(QtCore.QRect(20, 360, 421, 161))
@@ -93,9 +89,7 @@ class Ui_listWindow(object):
 "    background-color: rgb(230, 230, 230);\n"
 "}\n"
 "\n"
-"QPushButton:hover{\n"
-"    background-color: rgb(252, 188, 184);\n"
-"}")
+)
         self.noteButton3.setObjectName("noteButton3")
         listWindow.setCentralWidget(self.centralwidget)
 

@@ -123,34 +123,37 @@ def delete_remind():
 
     say('Atenção! Utilize o comando "listar lembretes" para evitar excluir um lembrete errado!')
 
-    say(f'diga o número do lembrete que você quer excluir de 1 a {num_reminds}')
+    while True:
+        say(f'diga o número do lembrete que você quer excluir de 1 a {num_reminds}')
 
-    try:
-        result = check_index(str(listen(True)))
-        index = result.group(0) if result else ''
+        try:
+            result = check_index(str(listen(True)))
+            index = result.group(0) if result else ''
 
-        if index == 'primeiro' or index == 'primeiro lembrete':
-            index = '1'
+            if index == 'primeiro' or index == 'primeiro lembrete':
+                index = '1'
 
-        remind = data[abs(int(index)-1)]
+            remind = data[abs(int(index)-1)]
 
-        say(f'você quer excluir o lembrete {remind["content"]}? sim ou não')
-        conf = confirm(f'não entendi, você quer excluir o lembrete {remind["content"]}? sim ou não')
+            say(f'você quer excluir o lembrete {remind["content"]}? sim ou não')
+            conf = confirm(f'não entendi, você quer excluir o lembrete {remind["content"]}? sim ou não')
 
-        if conf == 'sim':
-            data.pop(abs(int(index)-1))
+            if conf == 'sim':
+                data.pop(abs(int(index)-1))
 
-            file.write_json(data)
-            say('lembrete excluido com sucesso!')
+                file.write_json(data)
+                say('lembrete excluido com sucesso!')
 
-    except ValueError:
-        say('posição inválida!')
+            break
 
-    except IndexError:
-        say('número inválido!')
+        except ValueError:
+            say('posição inválida!')
 
-    except TypeError:
-        say('número inválido!')
+        except IndexError:
+            say('número inválido!')
+
+        except TypeError:
+            say('número inválido!')
 
 
 if __name__ == '__main__':
