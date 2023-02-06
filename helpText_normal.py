@@ -19,8 +19,8 @@ delete_reminderButton = "Excluir Lembrete. Assim que você clicar no botão " \
                       "organizada por data de expiração (primeiro os que estão" \
                       " mais perto de expirar e por último os que tem o período" \
                       " de duração maior). Para excluir um lembrete basta clicar no" \
-                      " lembrete desejado e clicar em iés. Caso não queira excluir, " \
-                      "clique em nou. Para navegar entre as páginas e ver" \
+                      " lembrete desejado e clicar em sim. Caso não queira excluir, " \
+                      "clique em não. Para navegar entre as páginas e ver" \
                       " mais lembretes cadastrados utilize os botões próxima página e" \
                       " voltar. Caso não tenha mais nenhum lembrete para excluir" \
                       ", clique em Ok para sair."
