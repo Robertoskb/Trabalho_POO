@@ -4,4 +4,3 @@ gTTS
 playsound
 PyAudio
 pyttsx3
-speech_recognition
