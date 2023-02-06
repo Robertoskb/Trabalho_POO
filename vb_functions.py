@@ -129,6 +129,9 @@ def delete_remind():
         result = check_index(str(listen(True)))
         index = result.group(0) if result else ''
 
+        if index == 'primeiro' or index == 'primeiro lembrete':
+            index = '1'
+
         remind = data[abs(int(index)-1)]
 
         say(f'você quer excluir o lembrete {remind["content"]}? sim ou não')

@@ -11,6 +11,7 @@ import textwrap
 
 file = JsonHandler('data/data.json')
 
+
 data_split = lambda data: [data[i:i + 3] for i in range(0, len(data), 3)] or [[]]
 
 
@@ -124,7 +125,8 @@ class DeleteWindow(QMainWindow, Ui_deleteWindow):
         self.rename_buttons()
 
     def reply(self):
-        reply = QMessageBox.question(QMainWindow(), 'Confirmação', 'Você tem certeza disso?', QMessageBox.Yes | QMessageBox.No, QMessageBox.No)
+        reply = QMessageBox.question(QMainWindow(), 'Confirmação', 'Você tem certeza disso?',
+                                     QMessageBox.Yes | QMessageBox.No, QMessageBox.No)
 
         return reply
 
