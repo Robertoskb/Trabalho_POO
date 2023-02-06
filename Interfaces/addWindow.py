@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file '.\addWindow.ui'
+# Form implementation generated from reading ui file '.\addWindow2.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.7
 #
@@ -34,6 +34,7 @@ class Ui_notesWindow(object):
         self.label_2.setObjectName("label_2")
         self.confirmButton = QtWidgets.QPushButton(self.centralwidget)
         self.confirmButton.setGeometry(QtCore.QRect(40, 400, 161, 71))
+        self.confirmButton.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.confirmButton.setStyleSheet("QPushButton{\n"
 "    border-radius:10px;\n"
 "    background-color: rgb(52, 190, 78);\n"
@@ -44,6 +45,11 @@ class Ui_notesWindow(object):
 "    background-color: rgb(54, 215, 96);\n"
 "}\n"
 "")
+        self.confirmButton.setText("")
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap("images/confirmar_addwindow.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.confirmButton.setIcon(icon)
+        self.confirmButton.setIconSize(QtCore.QSize(100, 100))
         self.confirmButton.setObjectName("confirmButton")
         self.textEdit = QtWidgets.QTextEdit(self.centralwidget)
         self.textEdit.setGeometry(QtCore.QRect(40, 70, 391, 201))
@@ -52,6 +58,7 @@ class Ui_notesWindow(object):
         self.textEdit.setObjectName("textEdit")
         self.cancelButton = QtWidgets.QPushButton(self.centralwidget)
         self.cancelButton.setGeometry(QtCore.QRect(270, 400, 161, 71))
+        self.cancelButton.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.cancelButton.setStyleSheet("QPushButton{\n"
 "    border-radius:10px;\n"
 "    background-color: rgb(246, 11, 56);\n"
@@ -62,6 +69,11 @@ class Ui_notesWindow(object):
 "    background-color: rgb(250, 43, 59);\n"
 "}\n"
 "")
+        self.cancelButton.setText("")
+        icon1 = QtGui.QIcon()
+        icon1.addPixmap(QtGui.QPixmap("images/cancelar_addwindow.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.cancelButton.setIcon(icon1)
+        self.cancelButton.setIconSize(QtCore.QSize(90, 90))
         self.cancelButton.setObjectName("cancelButton")
         self.dateNumbers = QtWidgets.QSpinBox(self.centralwidget)
         self.dateNumbers.setGeometry(QtCore.QRect(290, 310, 141, 41))
@@ -85,8 +97,6 @@ class Ui_notesWindow(object):
     def retranslateUi(self, notesWindow):
         _translate = QtCore.QCoreApplication.translate
         notesWindow.setWindowTitle(_translate("notesWindow", "Adicionar Lembrete"))
-        self.confirmButton.setText(_translate("notesWindow", "Confirmar"))
-        self.cancelButton.setText(_translate("notesWindow", "Cancelar"))
 
 
 if __name__ == "__main__":
