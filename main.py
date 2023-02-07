@@ -176,7 +176,7 @@ class MainWindow(QMainWindow, Ui_Principal):
         self.helpButton.clicked.connect(self.help_window.show)
         self.aboutButton.clicked.connect(self.about_window.show)
 
-        self.commandsButton.clicked.connect(lambda: say('adicionar lembrete, excluir lembretes, '
+        self.commandsButton.clicked.connect(lambda: say('adicionar lembrete, excluir lembrete, '
                                                         'listar lembretes, comandos, ajuda, sobre'))
 
     def disconnect_buttons(self):
