@@ -19,7 +19,7 @@ add_reminderButton = "Adicionar Lembrete. Para adicionar um lembrete, clique no 
 list_reminderButton = "Listar Lembretes. Assim que você clicar no botão " \
                       "Listar lembretes... você terá acesso à lista de lembretes " \
                       "organizada por data de expiração (primeiro os que estão" \
-                      " mais perto de expirar e por último os que tem o período" \
+                      " mais próximos de expirar e por último os que tem o período" \
                       " de duração maior). Para ouvir o conteúdo, " \
                       "basta clicar em cima do lembrete que você quer. " \
                       "Para navegar entre as páginas e ver mais lembretes cadastrados" \
@@ -29,7 +29,7 @@ list_reminderButton = "Listar Lembretes. Assim que você clicar no botão " \
 delete_reminderButton = "Excluir Lembrete. Assim que você clicar no botão " \
                       "Listar lembretes... você terá acesso à lista de lembretes " \
                       "organizada por data de expiração (primeiro os que estão" \
-                      " mais perto de expirar e por último os que tem o período" \
+                      " mais próximos de expirar e por último os que tem o período" \
                       " de duração maior). Para excluir um lembrete basta clicar no" \
                       " lembrete desejado e clicar em sim. Caso não queira excluir, " \
                       "clique em não. Para navegar entre as páginas e ver" \
