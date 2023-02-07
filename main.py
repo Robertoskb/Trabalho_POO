@@ -1,3 +1,4 @@
+from PyQt5.QtGui import QIcon
 from PyQt5.QtWidgets import QMainWindow
 from PyQt5 import QtWidgets, QtGui
 from Interfaces.SpeakyNotes import Ui_Principal
@@ -11,6 +12,8 @@ from say_it import say
 
 from threading import Thread
 from vb_functions import add_remind, delete_remind, list_reminds
+from helpText_vblind import all_helps
+from aboutText import about_text
 
 import sys
 import speech_recognition as sr
@@ -21,6 +24,8 @@ class MainWindow(QMainWindow, Ui_Principal):
     def __init__(self):
         super().__init__()
         self.setupUi(self)
+
+        self.setWindowIcon(QIcon('images/logo_speakynotes.png'))
 
         self.add_window = NotesWindow()
         self.delete_window = DeleteWindow()
@@ -53,11 +58,17 @@ class MainWindow(QMainWindow, Ui_Principal):
         self.icons = cycle((QtGui.QIcon('images/352545_mic_off_icon.png'),
                             QtGui.QIcon('images/352475_mic_microphone_icon.png')))
 
+        commands_text = "para saber a função de cada comando listado a seguir, utilize o comando Ajuda. " \
+                        "adicionar lembrete, excluir lembretes, listar lembretes, comandos, ajuda, sobre"
         self.micButton.clicked.connect(lambda: self.set_mic(True))
         self.commands = {'adicionar lembrete': lambda: self.run_blind_function(add_remind),
                          'excluir lembrete': lambda: self.run_blind_function(delete_remind),
                          'exclui lembrete': lambda: self.run_blind_function(delete_remind),
-                         'listar lembretes': lambda: self.run_blind_function(list_reminds)}
+                         'listar lembretes': lambda: self.run_blind_function(list_reminds),
+                         'comandos': lambda: self.run_blind_function(lambda: say(commands_text)),
+                         'ajuda': lambda: self.run_blind_function(lambda: say(all_helps)),
+                         'sobre': lambda: self.run_blind_function(lambda: say(about_text))
+                         }
 
         self.mic = Thread(target=self.microphone)
         self.mic.start()

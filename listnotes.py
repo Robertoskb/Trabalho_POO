@@ -1,3 +1,4 @@
+from PyQt5.QtGui import QIcon
 from PyQt5.QtWidgets import QMainWindow
 from PyQt5 import QtWidgets
 from PyQt5.QtCore import Qt, pyqtSignal
@@ -23,6 +24,8 @@ class ListWindow(QMainWindow, Ui_listWindow):
     def __init__(self):
         super().__init__()
         self.setupUi(self)
+
+        self.setWindowIcon(QIcon('images/logo_speakynotes.png'))
 
         self.data_split = []
         self.current_page = self.pages_number = 0
@@ -116,13 +119,13 @@ class ListWindow(QMainWindow, Ui_listWindow):
 
         if self.current_page < self.pages_number - 1:
             self.rightButton.setStyleSheet("QPushButton{\n"
-                                          "    border-radius:10px;\n"
-                                          "    \n"
-                                          "    background-color: rgb(240, 83, 101);\n"
-                                          "}\n"
-                                          "QPushButton:hover{\n"
-                                          "    background-color: rgb(254, 152, 177);\n"
-                                          "}")
+                                           "    border-radius:10px;\n"
+                                           "    \n"
+                                           "    background-color: rgb(240, 83, 101);\n"
+                                           "}\n"
+                                           "QPushButton:hover{\n"
+                                           "    background-color: rgb(254, 152, 177);\n"
+                                           "}")
             self.rightButton.clicked.connect(lambda: self.set_page(1))
 
         else:

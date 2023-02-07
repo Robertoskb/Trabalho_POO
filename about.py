@@ -1,21 +1,20 @@
+from PyQt5.QtGui import QIcon
 from PyQt5.QtWidgets import QMainWindow
-from PyQt5.QtCore import pyqtSignal
 from PyQt5 import QtWidgets
 from Interfaces.aboutWindow import Ui_aboutWindow
 from say_it import say
 from aboutText import about_text
-from threading import Thread
+from multiprocessing import Process
 import webbrowser
 
 
 class AboutWindow(QMainWindow, Ui_aboutWindow):
-    aboutToShow = pyqtSignal()
 
     def __init__(self):
         super().__init__()
         self.setupUi(self)
 
-        self.aboutToShow.connect(lambda: Thread(target=lambda: say(about_text)).start())
+        self.setWindowIcon(QIcon('images/logo_speakynotes.png'))
 
         self.links = (self.instaClarice, self.instaGrasielly, self.instaJackson,
                       self.instaDanilo, self.instaRoberto, self.instaLara)
@@ -26,11 +25,7 @@ class AboutWindow(QMainWindow, Ui_aboutWindow):
 
     def show(self):
         super().show()
-        try:
-            self.aboutToShow.emit()
-            
-        except RuntimeError:
-            pass
+        Process(target=say, args=(about_text,)).start()
 
 
 if __name__ == "__main__":

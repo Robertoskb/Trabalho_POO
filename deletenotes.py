@@ -1,4 +1,5 @@
 from PyQt5.QtCore import Qt, pyqtSignal
+from PyQt5.QtGui import QIcon
 from PyQt5.QtWidgets import QMainWindow, QMessageBox
 from PyQt5 import QtWidgets
 from Interfaces.deleteWindow import Ui_deleteWindow
@@ -23,6 +24,19 @@ def disconnect_button(button):
         pass
 
 
+def message_box():
+    msg_box = QMessageBox()
+    msg_box.setText('Tem certeza?')
+    confirm_btn = msg_box.addButton('Sim', QMessageBox.YesRole)
+    _ = msg_box.addButton('Não', QMessageBox.NoRole)
+
+    msg_box.exec_()
+
+    if msg_box.clickedButton() == confirm_btn:
+        return True
+    return False
+
+
 class DeleteWindow(QMainWindow, Ui_deleteWindow):
     aboutToShow = pyqtSignal()
 
@@ -30,6 +44,8 @@ class DeleteWindow(QMainWindow, Ui_deleteWindow):
         super().__init__()
         self.setupUi(self)
         self.aboutToShow.connect(self.update)
+
+        self.setWindowIcon(QIcon('images/logo_speakynotes.png'))
 
         self.current_page = self.pages_number = 0
         self.data_split = self.data = None
@@ -106,7 +122,7 @@ class DeleteWindow(QMainWindow, Ui_deleteWindow):
         self.check_pages()
 
     def delete_reminder(self, id_button):
-        if self.reply() == QMessageBox.No:
+        if not message_box():
             self.disconnect_buttons()
             self.rename_buttons()
 
@@ -123,12 +139,6 @@ class DeleteWindow(QMainWindow, Ui_deleteWindow):
 
         self.disconnect_buttons()
         self.rename_buttons()
-
-    def reply(self):
-        reply = QMessageBox.question(QMainWindow(), 'Confirmação', 'Você tem certeza disso?',
-                                     QMessageBox.Yes | QMessageBox.No, QMessageBox.No)
-
-        return reply
 
     def disconnect_buttons(self):
         for button in self.buttons:

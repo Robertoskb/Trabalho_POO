@@ -1,3 +1,4 @@
+from PyQt5.QtGui import QIcon
 from PyQt5.QtWidgets import QMainWindow
 from PyQt5 import QtWidgets
 from Interfaces.helpWindow import Ui_helpWindow
@@ -10,6 +11,8 @@ class HelpWindow(QMainWindow, Ui_helpWindow):
     def __init__(self):
         super().__init__()
         self.setupUi(self)
+
+        self.setWindowIcon(QIcon('images/logo_speakynotes.png'))
 
         self.helpSobre_Button.clicked.connect(lambda: say(helpText.aboutButton))
         self.helpAjuda_Button.clicked.connect(lambda: say(helpText.helpButton))
