@@ -6,5 +6,5 @@ about_text = "Esse aplicativo foi desenvolvido com o objetivo " \
              "com fontes grandes para facilitar a leitura. Lembrando que, para" \
              " o programa captar melhor a sua voz e para uma melhor experiência," \
              " é recomendado o uso de fones de ouvido. Atenciosamente, Desenvolvedores. " \
-             "Desenvolvedores: Albert Danilo, Clarice Mesquita, Grasielly Rayara, Jackson Webber, " \
+             "Desenvolvedores: Albert Danilo, Clarice Mesquita, Grasielly Rayara, Jackson Uéber, " \
              "José Roberto e Lara Rayssa."
