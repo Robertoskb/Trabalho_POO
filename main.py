@@ -54,6 +54,7 @@ class MainWindow(QMainWindow, Ui_Principal):
 
         self.mic_status = True
         self.thread = True
+        self.can_close = True
 
         self.icons = cycle((QtGui.QIcon('images/352545_mic_off_icon.png'),
                             QtGui.QIcon('images/352475_mic_microphone_icon.png')))
@@ -75,11 +76,20 @@ class MainWindow(QMainWindow, Ui_Principal):
 
     def run_blind_function(self, func):
         self.mic_status = False
+        self.micButton.disconnect()
+        self.can_close = False
         func()
+        self.micButton.clicked.connect(lambda: self.set_mic(True))
         self.mic_status = True
         self.say_quest = True
+        self.can_close = True
 
     def closeEvent(self, event):
+        if not self.can_close:
+            event.ignore()
+
+            return
+
         self.thread = False
         if self.mic_status:
             self.set_mic(False)
