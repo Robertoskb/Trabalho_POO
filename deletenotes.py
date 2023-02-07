@@ -12,7 +12,6 @@ import textwrap
 
 file = JsonHandler('data/data.json')
 
-
 data_split = lambda data: [data[i:i + 3] for i in range(0, len(data), 3)] or [[]]
 
 
@@ -26,7 +25,9 @@ def disconnect_button(button):
 
 def message_box():
     msg_box = QMessageBox()
-    msg_box.setText('Tem certeza?')
+    msg_box.setWindowIcon(QIcon('images/lixeira.png'))
+    msg_box.setText('Você em certeza disso?')
+    msg_box.setWindowTitle('confirmação')
     confirm_btn = msg_box.addButton('Sim', QMessageBox.YesRole)
     _ = msg_box.addButton('Não', QMessageBox.NoRole)
 
