@@ -60,7 +60,7 @@ class MainWindow(QMainWindow, Ui_Principal):
                             QtGui.QIcon('images/352475_mic_microphone_icon.png')))
 
         commands_text = "para saber a função de cada comando listado a seguir, utilize o comando Ajuda. " \
-                        "adicionar lembrete, excluir lembretes, listar lembretes, comandos, ajuda, sobre"
+                        "adicionar lembrete, excluir lembrete, listar lembretes, comandos, ajuda, sobre"
         self.micButton.clicked.connect(lambda: self.set_mic(True))
         self.commands = {'adicionar lembrete': lambda: self.run_blind_function(add_remind),
                          'excluir lembrete': lambda: self.run_blind_function(delete_remind),
@@ -76,10 +76,8 @@ class MainWindow(QMainWindow, Ui_Principal):
 
     def run_blind_function(self, func):
         self.mic_status = False
-        self.micButton.disconnect()
         self.can_close = False
         func()
-        self.micButton.clicked.connect(lambda: self.set_mic(True))
         self.mic_status = True
         self.say_quest = True
         self.can_close = True
@@ -109,6 +107,9 @@ class MainWindow(QMainWindow, Ui_Principal):
                 pass
 
     def set_mic(self, change_colors):
+        if not self.can_close:
+            return
+
         self.mic_status = not self.mic_status
         self.micButton.setIcon(next(self.icons))
         if self.mic_status:
