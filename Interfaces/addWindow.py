@@ -85,7 +85,7 @@ class Ui_notesWindow(object):
         self.label_3 = QtWidgets.QLabel(self.centralwidget)
         self.label_3.setGeometry(QtCore.QRect(350, 10, 41, 41))
         self.label_3.setText("")
-        self.label_3.setPixmap(QtGui.QPixmap("images/7830644_pencil_icon.png"))
+        self.label_3.setPixmap(QtGui.QPixmap("images/pencilICON.png"))
         self.label_3.setScaledContents(True)
         self.label_3.setObjectName("label_3")
         notesWindow.setCentralWidget(self.centralwidget)

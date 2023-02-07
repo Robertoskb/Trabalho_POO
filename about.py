@@ -14,7 +14,7 @@ class AboutWindow(QMainWindow, Ui_aboutWindow):
         super().__init__()
         self.setupUi(self)
 
-        self.setWindowIcon(QIcon('images/logo_speakynotes.png'))
+        self.setWindowIcon(QIcon('images/infoicon.png'))
 
         self.links = (self.instaClarice, self.instaGrasielly, self.instaJackson,
                       self.instaDanilo, self.instaRoberto, self.instaLara)

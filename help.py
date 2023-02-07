@@ -12,7 +12,7 @@ class HelpWindow(QMainWindow, Ui_helpWindow):
         super().__init__()
         self.setupUi(self)
 
-        self.setWindowIcon(QIcon('images/logo_speakynotes.png'))
+        self.setWindowIcon(QIcon('images/helpICON.png'))
 
         self.helpSobre_Button.clicked.connect(lambda: say(helpText.aboutButton))
         self.helpAjuda_Button.clicked.connect(lambda: say(helpText.helpButton))

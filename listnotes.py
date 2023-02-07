@@ -25,7 +25,7 @@ class ListWindow(QMainWindow, Ui_listWindow):
         super().__init__()
         self.setupUi(self)
 
-        self.setWindowIcon(QIcon('images/logo_speakynotes.png'))
+        self.setWindowIcon(QIcon('images/listTask.png'))
 
         self.data_split = []
         self.current_page = self.pages_number = 0

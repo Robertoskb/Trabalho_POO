@@ -25,7 +25,7 @@ def disconnect_button(button):
 
 def message_box():
     msg_box = QMessageBox()
-    msg_box.setWindowIcon(QIcon('images/lixeira.png'))
+    msg_box.setWindowIcon(QIcon('images/trash.png'))
     msg_box.setText('Você em certeza disso?')
     msg_box.setWindowTitle('confirmação')
     confirm_btn = msg_box.addButton('Sim', QMessageBox.YesRole)
@@ -46,7 +46,7 @@ class DeleteWindow(QMainWindow, Ui_deleteWindow):
         self.setupUi(self)
         self.aboutToShow.connect(self.update)
 
-        self.setWindowIcon(QIcon('images/logo_speakynotes.png'))
+        self.setWindowIcon(QIcon('images/trash.png'))
 
         self.current_page = self.pages_number = 0
         self.data_split = self.data = None

@@ -16,7 +16,7 @@ class NotesWindow(QMainWindow, Ui_notesWindow):
         super().__init__()
         self.setupUi(self)
 
-        self.setWindowIcon(QIcon('images/logo_speakynotes.png'))
+        self.setWindowIcon(QIcon('images/addicon.png'))
 
         self.confirmButton.clicked.connect(self.save_data)
 

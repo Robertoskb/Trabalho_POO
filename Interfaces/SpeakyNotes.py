@@ -66,7 +66,7 @@ class Ui_Principal(object):
 "}")
         self.micButton.setText("")
         icon1 = QtGui.QIcon()
-        icon1.addPixmap(QtGui.QPixmap("images/352475_mic_microphone_icon.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon1.addPixmap(QtGui.QPixmap("images/micON.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.micButton.setIcon(icon1)
         self.micButton.setIconSize(QtCore.QSize(60, 60))
         self.micButton.setObjectName("micButton")

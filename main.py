@@ -56,8 +56,8 @@ class MainWindow(QMainWindow, Ui_Principal):
         self.thread = True
         self.can_close = True
 
-        self.icons = cycle((QtGui.QIcon('images/352545_mic_off_icon.png'),
-                            QtGui.QIcon('images/352475_mic_microphone_icon.png')))
+        self.icons = cycle((QtGui.QIcon('images/micOFF.png'),
+                            QtGui.QIcon('images/micON.png')))
 
         commands_text = "para saber a função de cada comando listado a seguir, utilize o comando Ajuda. " \
                         "adicionar lembrete, excluir lembrete, listar lembretes, comandos, ajuda, sobre"

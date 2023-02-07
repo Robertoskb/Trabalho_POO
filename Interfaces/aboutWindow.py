@@ -118,7 +118,7 @@ class Ui_aboutWindow(object):
         self.imgInsta = QtWidgets.QLabel(self.centralwidget)
         self.imgInsta.setGeometry(QtCore.QRect(570, 390, 31, 31))
         self.imgInsta.setText("")
-        self.imgInsta.setPixmap(QtGui.QPixmap("images/3225191_app_instagram_logo_media_popular_icon.png"))
+        self.imgInsta.setPixmap(QtGui.QPixmap("images/instaICON.png"))
         self.imgInsta.setScaledContents(True)
         self.imgInsta.setObjectName("imgInsta")
         aboutWindow.setCentralWidget(self.centralwidget)
