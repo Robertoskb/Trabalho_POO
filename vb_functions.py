@@ -9,11 +9,10 @@ check_day = lambda string: re.search(r'\b(um dia|\d+)\b', string)
 check_index = lambda string: re.search(r'\b(primeiro|\d+|primeiro lembrete)\b', string)
 
 file = JsonHandler('data/data.json')
+recognizer = sr.Recognizer()
 
 
 def listen(show_all=False):
-    recognizer = sr.Recognizer()
-
     with sr.Microphone() as source:
         recognizer.adjust_for_ambient_noise(source)
         audio = recognizer.listen(source, phrase_time_limit=5)

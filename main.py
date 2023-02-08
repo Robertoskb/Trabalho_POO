@@ -18,6 +18,8 @@ from aboutText import about_text
 import sys
 import speech_recognition as sr
 
+recognizer = sr.Recognizer()
+
 
 class MainWindow(QMainWindow, Ui_Principal):
 
@@ -68,7 +70,8 @@ class MainWindow(QMainWindow, Ui_Principal):
                          'listar lembretes': lambda: self.run_blind_function(list_reminds),
                          'comandos': lambda: self.run_blind_function(lambda: say(commands_text)),
                          'ajuda': lambda: self.run_blind_function(lambda: say(all_helps)),
-                         'sobre': lambda: self.run_blind_function(lambda: say(about_text))
+                         'sobre': lambda: self.run_blind_function(lambda: say(about_text)),
+                         'sair': self.close
                          }
 
         self.mic = Thread(target=self.microphone)
@@ -134,8 +137,6 @@ class MainWindow(QMainWindow, Ui_Principal):
                                          "    padding-top: -5px;\n")
 
     def microphone(self):
-        recognizer = sr.Recognizer()
-
         while self.thread:
             with sr.Microphone() as source:
                 recognizer.adjust_for_ambient_noise(source)
@@ -146,9 +147,6 @@ class MainWindow(QMainWindow, Ui_Principal):
 
                     try:
                         text = recognizer.recognize_google(audio, language='pt-BR')
-                        if text == 'sair':
-                            self.close()
-                            sys.exit(app.exec_())
 
                         self.commands.get(text.lower(), lambda: print('não entendi'))()
 
